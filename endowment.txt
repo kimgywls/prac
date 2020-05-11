@@ -1,0 +1,9 @@
+
+create table 의사(
+의사번호 int  PRIMARY KEY AUTO_INCREMENT, 의사이름 varchar(20) not null, 
+연락처 varchar(20) not null, 소속과 int not null, 직급 varchar(20) not null,
+FOREIGN KEY(소속과) REFERENCES 과(과번호) ON DELETE CASCADE  ON UPDATE CASCADE);
+
+create table 기증(
+기증품목 번호, 기증품목 이름, 갯수, 기증자 번호
+FOREIGN KEY(기증자 번호) REFERENCES 환자(환자번호) ON DELETE CASCADE  ON UPDATE CASCADE);

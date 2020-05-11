@@ -1,0 +1,13 @@
+create table 과(과번호 int  PRIMARY KEY AUTO_INCREMENT,과이름 varchar(20) not null,책임자 varchar(20) not null);
+
+insert into 과 values(1,'외과','김외과');
+insert into 과 values(2,'내과','김내과');
+insert into 과 values(3,'흉부외과','김흉부');
+insert into 과 values(4,'정형외과','김정형');
+insert into 과 values(5,'신경외과','김신경');
+insert into 과 values(6,'산부인과','김산부');
+insert into 과 values(7,'비뇨기과','김비뇨');
+insert into 과 values(8,'마취통증의학과','김마취');
+insert into 과 values(9,'이비인후과','김이비');
+insert into 과 values(10,'소아과','김소아');
+insert into 과 values(11,'응급의학과','김응급');
