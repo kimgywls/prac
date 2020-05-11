@@ -77,4 +77,5 @@ insert into 의사 values(43,'임응급','010-0111-3333',11,'레지던트');
 insert into 의사 values(44,'진응급','010-0111-4444',11,'인턴');
 
 create table 기증(
-기증품목 번호, 기증품목 이름, 갯수, 기증자 번호)
+기증품목 번호 int PRIMARY KEY AUTO_INCREMENT , 기증품목 이름 varchar not null, 갯수 int not null, 기증자 번호 int
+FOREIGN KEY(기증자번호) REFERENCES 환자(환자번호) ON DELETE CASCADE  ON UPDATE CASCADE);
