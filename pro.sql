@@ -1,0 +1,81 @@
+create table 과(과번호 int  PRIMARY KEY AUTO_INCREMENT,과이름 varchar(20) not null,책임자 varchar(20) not null);
+
+insert into 과 values(1,'외과','김외과');
+insert into 과 values(2,'내과','김내과');
+insert into 과 values(3,'흉부외과','김흉부');
+insert into 과 values(4,'정형외과','김정형');
+insert into 과 values(5,'신경외과','김신경');
+insert into 과 values(6,'산부인과','김산부');
+insert into 과 values(7,'비뇨기과','김비뇨');
+insert into 과 values(8,'마취통증의학과','김마취');
+insert into 과 values(9,'이비인후과','김이비');
+insert into 과 values(10,'소아과','김소아');
+insert into 과 values(11,'응급의학과','김응급');
+
+create table 직급(직급번호 int  PRIMARY KEY AUTO_INCREMENT, 직급 varchar(20) not null);
+insert into 직급 values(1,'인턴');
+
+create table 의사(
+의사번호 int  PRIMARY KEY AUTO_INCREMENT, 의사이름 varchar(20) not null, 
+연락처 varchar(20) not null, 소속과 int not null, 직급 varchar(20) not null,
+FOREIGN KEY(소속과) REFERENCES 과(과번호) ON DELETE CASCADE  ON UPDATE CASCADE);
+
+insert into 의사 values(1,'김외과','010-1111-1111',1,'교수');
+insert into 의사 values(2,'이외과','010-1111-2222',1,'부교수');
+insert into 의사 values(3,'박외과','010-1111-3333',1,'조교수');
+insert into 의사 values(4,'최외과','010-1111-4444',1,'레지던트');
+insert into 의사 values(5,'강외과','010-1111-5555',1,'인턴');
+
+insert into 의사 values(6,'김내과','010-2222-1111',2,'교수');
+insert into 의사 values(7,'이내과','010-2222-2222',2,'부교수');
+insert into 의사 values(8,'박내과','010-2222-3333',2,'부교수');
+insert into 의사 values(9,'최내과','010-2222-4444',2,'펠로우');
+insert into 의사 values(10,'김내과','010-2222-5555',2,'레지던트');
+insert into 의사 values(11,'장내과','010-2222-6666',2,'인턴');
+insert into 의사 values(12,'윤내과','010-2222-7777',2,'인턴');
+
+
+insert into 의사 values(13,'김흉부','010-3333-1111',3,'교수');
+insert into 의사 values(14,'윤흉부','010-3333-2222',3,'교수');
+insert into 의사 values(15,'이흉부','010-3333-3333',3,'레지던트');
+
+insert into 의사 values(16,'김정형','010-4444-1111',4,'교수');
+insert into 의사 values(17,'이정형','010-4444-2222',4,'부교수');
+insert into 의사 values(18,'윤정형','010-4444-3333',4,'조교수');
+insert into 의사 values(19,'진정형','010-4444-4444',4,'펠로우');
+insert into 의사 values(20,'김정형','010-4444-5555',4,'레지던트');
+insert into 의사 values(21,'김정형','010-4444-6666',4,'인턴');
+
+insert into 의사 values(22,'김신경','010-5555-1111',5,'교수');
+insert into 의사 values(23,'김신경','010-5555-2222',5,'조교수');
+insert into 의사 values(24,'이신경','010-5555-3333',5,'레지던트');
+insert into 의사 values(25,'강신경','010-5555-4444',5,'인턴');
+
+insert into 의사 values(26,'김산부','010-6666-1111',6,'교수');
+insert into 의사 values(27,'김산부','010-6666-2222',6,'부교수');
+insert into 의사 values(28,'양산부','010-6666-3333',6,'펠로우');
+
+insert into 의사 values(29,'김비뇨','010-7777-1111',7,'교수');
+insert into 의사 values(30,'이비뇨','010-7777-2222',7,'조교수');
+
+insert into 의사 values(31,'김마취','010-8888-1111',8,'교수');
+insert into 의사 values(32,'최마취','010-8888-2222',8,'펠로우');
+
+insert into 의사 values(33,'김이비','010-9999-1111',9,'교수');
+insert into 의사 values(34,'윤이비','010-9999-2222',9,'부교수');
+insert into 의사 values(35,'우이비','010-9999-3333',9,'레지던트');
+insert into 의사 values(36,'강이비','010-9999-4444',9,'레지던트');
+insert into 의사 values(37,'지이비','010-9999-5555',9,'인턴');
+
+insert into 의사 values(38,'김소아','010-1010-1111',10,'교수');
+insert into 의사 values(39,'강소아','010-1010-2222',10,'레지던트');
+insert into 의사 values(40,'이소아','010-1010-3333',10,'인턴');
+
+insert into 의사 values(41,'김응급','010-0111-1111',11,'교수');
+insert into 의사 values(42,'강응급','010-0111-2222',11,'펠로우');
+insert into 의사 values(43,'임응급','010-0111-3333',11,'레지던트');
+insert into 의사 values(44,'진응급','010-0111-4444',11,'인턴');
+
+create table 기증(
+기증품목 번호 int PRIMARY KEY AUTO_INCREMENT , 기증품목 이름 varchar not null, 갯수 int not null, 기증자 번호 int
+FOREIGN KEY(기증자번호) REFERENCES 환자(환자번호) ON DELETE CASCADE  ON UPDATE CASCADE);
